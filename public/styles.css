@@ -55,6 +55,25 @@ body {
   margin-bottom: 20px;
 }
 
+li {
+  flex-basis: calc(25% - 20px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.remove {
+  left: 20px;
+  cursor: pointer;
+  flex-direction: row;
+  background-color: rgba(64, 174, 218, 0.178);
+  border: 2px solid hsl(198, 15, 29%);
+  
+}
+.remove:hover {
+  color: red;
+}
+
 button {
   padding: 0;
   border: none;
@@ -70,7 +89,7 @@ button span {
   background: #f1f5f8;
   display: block;
   padding: 0.5rem 1rem;
-  border-radius: 5%;
+  border-radius: 5px;
   border: 2px solid hsl(198, 1%, 29%);
 }
 
