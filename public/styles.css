@@ -64,14 +64,17 @@ li {
 
 .remove {
   left: 20px;
+  padding: 5px 12px;
   cursor: pointer;
   flex-direction: row;
-  background-color: rgba(64, 174, 218, 0.178);
-  border: 2px solid hsl(198, 15, 29%);
+  background-color: rgba(109, 235, 252, 0.897);
+  border: 2px solid rgba(0,0,0);
+  border-radius: 55%;
   
 }
 .remove:hover {
   color: red;
+  background-color:rgb(231, 145, 244);
 }
 
 button {
@@ -105,4 +108,20 @@ li {
   text-align: left;
   position: relative;
   padding: 0.5rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  z-index: -1;
+}
+
+footer a, a:visited{
+  text-decoration: none;
+  color: hsl(198, 1%, 29%);
+  cursor: pointer;
+}
+
+footer a:hover {
+  z-index: 1;
 }

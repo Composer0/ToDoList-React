@@ -1,8 +1,8 @@
 {
-  "homepage": "https://Composer0.github.io/ToDoList-React",
   "name": "todolist",
+  "homepage": "https://Composer0.github.io/ToDoList-React",
   "version": "1.0.0",
-  "description": "",
+  "description": "A To-Do App created using React that allows users to enter information into the input area by either clicking the 'Add' button or pressing 'Enter' on their keyboard. Additionally this To-Do List provides users the ability to copy and paste their inputs and when they are done, remove the item from the list by clicking the 'X' button over to the side of the item.",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
