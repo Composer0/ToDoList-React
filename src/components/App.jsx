@@ -1,65 +1,72 @@
-import React, {useState} from 'react';
-import ToDoItem from './ToDoItem';
-import InputArea from './InputArea';
+import React from 'react';
+import Tasks from './Tasks';
+import {Paper, TextField} from '@material-ui/core';
+import {Checkbox, Button} from '@material-ui/core';
+import "./App.css";
 
-function App() {
+class App extends Tasks {
+    state = {tasks: [], currentTask: ""}
+    render() {
+        const {tasks} = this.state;
+        return ( 
+        
+        <div className="App flex">
 
-const[items, setItems] = useState([]);
+            <Paper elevation ={3} className="container">
+                <div className ="heading">To-Do</div>
+                <form 
+                onSubmit={this.handleSubmit}
+                className="flex"
+                style={{margin: "15px 0"}}
+                >
 
-//Adds creates a list item using the input text.
+                    <TextField
+                    variant="outlined"
+                    size="small"
+                    style={{width: "80%"}}
+                    value={this.state.currentTask}
+                    required={true}
+                    onChange={this.handleChange}
+                    placeholder="Add New TO-DO"
 
-function addItems(text) {
-  setItems(prevValues => {
-      return [...prevValues, text];
-      })
+                    />
+
+                    <Button 
+                    style={{height: "40px"}} 
+                    color="primary"
+                    variant="outlined"
+                    type="submit"
+                    >
+                        Add Task
+                    </Button>
+
+                </form>
+
+                <div>
+                   {tasks.map((task) => (
+                    <Paper key={task._id} className="flex task_container">
+                        <Checkbox
+                            checked={task.completed}
+                            onClick={() => this.handleUpdate(task._id)}
+                            color="primary"
+                            ></Checkbox>
+                        <div
+                        className={task.completed ? "task line_through" : "task"}>
+                            {task.task}
+                        </div>
+                        <Button 
+                        onClick={() => this.handleDelete(task._id)}
+                        color="primary"
+                        >
+                            Delete
+                        </Button>
+                    </Paper>
+                   ))} 
+                </div>
+
+            </Paper>
+        </div>);
+    }
 }
-
-//Adds creates a list item using the input text.
-
-
-//Removes Items on Button Click
-function deleteItem(id) {
-  setItems((prevItems) => {
-    return prevItems.filter((items, index) => {
-      return index !== id;
-  })
-})
-}
-//Removes Items on Button Click
-
-    return (
-    
-        <div className="container">
-          
-          <div className="heading">
-            <h1>To-Do List</h1>
-          </div>
-          
-          <InputArea 
-            onAdd={addItems}
-          />
-          
-          <div>
-            <ul>
-
-            {items.map((toDoItem, index) => 
-            <ToDoItem 
-            key={index} 
-            id={index} 
-            text={toDoItem} 
-            onChecked={deleteItem}
-
-            /> )} 
-
-            </ul>
-          </div>
-        <footer>
-          <p>Brought to life by <span><a href="http://www.orionpalmer.com" target="_blank" rel="noopener noreferrer">Orion Palmer</a></span>
-          </p>
-        </footer>
-        </div>
-      );
-}
-
 
 export default App;

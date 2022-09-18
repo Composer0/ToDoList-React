@@ -1,9 +1,5 @@
 import React, {useState} from 'react';
 
-
-
-
-
 function InputArea(props) {
     const[text, setText] = useState("");
     
